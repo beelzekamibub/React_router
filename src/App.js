@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import HeaderComponent from "./Components/Header";
+import NavComponent from "./Components/Nav";
+import About from "./Components/About";
+import Footer from "./Components/Footer";
+import Home from "./Components/Home";
+import Missing from "./Components/Missing";
+import NewPost from "./Components/NewPost";
+import PostDetails from "./Components/PostDetails";
+
+import { Route, Routes, usehistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderComponent></HeaderComponent>
+      <NavComponent></NavComponent>
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route exact path="/Post" Component={NewPost} />
+        <Route path="/Post/:id" Component={PostDetails} />
+        <Route path="/About" Component={About} />
+        <Route path="*" Component={Missing} />
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const HeaderComponent = () => {
+const HeaderComponent = (props) => {
     return (
-        <div>HeaderComponent</div>
+        <div>{props.title}</div>
     )
 }
 
